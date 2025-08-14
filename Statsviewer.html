@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kurolista</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Stats Viewer</title>
+  <link rel="stylesheet" href="stats.css" />
 </head>
 <body>
   <header>
@@ -16,10 +16,16 @@
     </div>
   </header>
 
-  <div class="container">
-    <h1>NIMA</h1>
+  <div class="stats-container">
+    <div class="player-list">
+      <input type="text" id="searchInput" placeholder="Szukaj..." />
+      <ul id="playerList"></ul>
+    </div>
+    <div class="player-details" id="playerDetails">
+      <p>Kliknij na nazwę gracza aby sprawdzić jego wbite poziomy</p>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="stats.js"></script>
 </body>
 </html>
