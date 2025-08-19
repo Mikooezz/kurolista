@@ -1,5 +1,6 @@
 const players = [
-  { rank: 1, name: "Mikoo_ez", country: "pl", score: 0, records: [] }
+  { rank: 1, name: "[KASTI] realkolib2137", country: "pl", score: 474.8, records: ["CLICKS OF HELL - TOP 6","ZenonMartyniukLiked - TOP 7"] },
+  { rank: 2, name: "Beli9002", country: "pl", score: 52.78, records: ["Lightmare - TOP 15"] }
 ];
 
 const playerListEl = document.getElementById("playerList");
