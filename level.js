@@ -22,8 +22,14 @@ const levelData = {
 };
 
 const levelRecords = {
-  "The Holokaust": [
-    //{ flag: "pl", player: "[KASTI] Cwelozaur", progress: "100%", proof: "https://youtube.com/..." },
+  "ZenonMartyniukLiked": [
+    { flag: "pl", player: "[KASTI] realkolib2137", progress: "100%", proof: "" },
+  ],
+  "CLICKS OF HELL": [
+    { flag: "pl", player: "[KASTI] realkolib2137", progress: "100%", proof: "" },
+  ],
+  "Lightmare": [
+    { flag: "pl", player: "Beli9002", progress: "100%", proof: "" },
   ],
 };
 
