@@ -32,6 +32,9 @@ const levelRecords = {
   "Lightmare": [
     { flag: "pl", player: "Beli9002", progress: "100%", proof: "" },
   ],
+  "mess": [
+    { flag: "pl", player: "[KASTI] realkolib2137", progress: "100%", proof: "https://www.youtube.com/watch?v=u--mLTf6VwA" },
+  ],
 };
 
 function renderRecords(name) {
