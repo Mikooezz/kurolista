@@ -14,11 +14,12 @@ const levelData = {
   "RICOCHET": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "161.38", scorePartial: "16.13" },
   "kura madness": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "139.66", scorePartial: "13.96" },
   "Abyss of Freakness": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "117.94", scorePartial: "11.79" },
-  "lowtaperhate": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "96.22", scorePartial: "96.22" },
-  "OceanGate Survival": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "74.5", scorePartial: "75.50" },
-  "Lightmare": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "52.78", scorePartial: "52.78" },
-  "Super love me ufo": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "31.06", scorePartial: "31.06" },
-  "Kurowa Depresja": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "9.34", scorePartial: "09.34" }
+  "lowtaperhate": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "96.22", scorePartial: "9.62" },
+  "OceanGate Survival": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "74.5", scorePartial: "7.45" },
+  "Lightmare": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "52.78", scorePartial: "5.27" },
+  "Super love me ufo": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "31.06", scorePartial: "3.10" },
+  "Kurowa Depresja": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "9.34", scorePartial: "0.93" },
+  "mess": { video: "https://youtube.com/embed/h2fq25mneiQ?si=Eq-XRLi-yQClhqJO", scoreFull: "3.34", scorePartial: "0.33" }
 };
 
 const levelRecords = {
