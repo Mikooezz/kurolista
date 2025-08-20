@@ -1,6 +1,7 @@
 const players = [
   { rank: 1, name: "[KASTI] realkolib2137", country: "pl", score: 474.8, records: ["CLICKS OF HELL - TOP 6","ZenonMartyniukLiked - TOP 7"] },
-  { rank: 2, name: "Beli9002", country: "pl", score: 52.78, records: ["Lightmare - TOP 15"] }
+  { rank: 2, name: "Beli9002", country: "pl", score: 52.78, records: ["Lightmare - TOP 15"] },
+  { rank: 3, name: "zigi", country: "pl", score: 3.34, records: ["mess - TOP 18"] }
 ];
 
 const playerListEl = document.getElementById("playerList");
