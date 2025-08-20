@@ -16,6 +16,7 @@ const levels = [
   { rank: 15, title: "Lightmare", author: "[SKIBI] Bob2025", points: 52.78, thumbnail: "Miniaturki/Lightmare.png" },
   { rank: 16, title: "Super love me ufo", author: "[SKIBI] Bob2025", points: 31.06, thumbnail: "Miniaturki/Super love me ufo.png" },
   { rank: 17, title: "Kurowa Depresja", author: "[SKIBI] Bob2025", points: 9.34, thumbnail: "Miniaturki/Kurowa Depresja.png" },
+  { rank: 18, title: "mess", author: "zigi", points: 3.34, thumbnail: "Miniaturki/mess.png" },
 ];
 
 const levelList = document.getElementById("levelList");
