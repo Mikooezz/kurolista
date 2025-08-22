@@ -1,12 +1,16 @@
-const players = [
-  { rank: 1, name: "[KASTI] realkolib2137", country: "pl", score: 478.14, records: ["CLICKS OF HELL - TOP 6","ZenonMartyniukLiked - TOP 7","mess - TOP 18"] },
-  { rank: 2, name: "Beli9002", country: "pl", score: 52.78, records: ["Lightmare - TOP 15"] },
-  { rank: 3, name: "zigi", country: "pl", score: 3.34, records: ["mess - TOP 18"] }
-];
-
 const playerListEl = document.getElementById("playerList");
 const playerDetailsEl = document.getElementById("playerDetails");
 const searchInputEl = document.getElementById("searchInput");
+let players = [];
+
+async function loadPlayers() {
+  try {
+    players = await fetch("data/players.json").then(r => r.json());
+    renderPlayers();
+  } catch (e) {
+    console.error("Error loading players.json", e);
+  }
+}
 
 function renderPlayers(filter = "") {
   playerListEl.innerHTML = "";
@@ -38,4 +42,4 @@ function showPlayerDetails(player) {
 
 searchInputEl.addEventListener("input", e => renderPlayers(e.target.value));
 
-renderPlayers();
+document.addEventListener("DOMContentLoaded", loadPlayers);
