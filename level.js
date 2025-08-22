@@ -1,56 +1,46 @@
 const params = new URLSearchParams(window.location.search);
 const levelName = params.get("name");
 
-const levelData = {
-  "The Holokaust": { video: "https://www.youtube.com/embed/aovFw1QSDJY?si=_4g1iE4wVah_Tkjp", scoreFull: "350.00", scorePartial: "35.00"},
-  "ZylakiNaDupie": { video: "https://www.youtube.com/embed/XFplNcwhqGc?si=xDsV0ls_v2rG7MpF", scoreFull: "331.71", scorePartial: "33.17"},
-  "Chuj Kurwa": { video: "https://www.youtube.com/embed/VIDEO_ID3", scoreFull: "313.42", scorePartial: "31.34" },
-  "JaJoGniot": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "291.70", scorePartial: "29.17" },
-  "kfc madness": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "269.98", scorePartial: "26.99" },
-  "CLICKS OF HELL": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "248.26", scorePartial: "24.82" },
-  "ZenonMartyniukLiked": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "226.54", scorePartial: "22.65" },
-  "Super fade me ship": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "204.82", scorePartial: "20.48" },
-  "wave challenge": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "183.1", scorePartial: "18.31" },
-  "RICOCHET": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "161.38", scorePartial: "16.13" },
-  "kura madness": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "139.66", scorePartial: "13.96" },
-  "Abyss of Freakness": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "117.94", scorePartial: "11.79" },
-  "lowtaperhate": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "96.22", scorePartial: "9.62" },
-  "OceanGate Survival": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "74.5", scorePartial: "7.45" },
-  "Lightmare": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "52.78", scorePartial: "5.27" },
-  "Super love me ufo": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "31.06", scorePartial: "3.10" },
-  "Kurowa Depresja": { video: "https://www.youtube.com/embed/VIDEO_ID4", scoreFull: "9.34", scorePartial: "0.93" },
-  "mess": { video: "https://youtube.com/embed/h2fq25mneiQ?si=Eq-XRLi-yQClhqJO", scoreFull: "3.34", scorePartial: "0.33" }
-};
+const nameEl = document.getElementById("level-name");
+const videoEl = document.getElementById("video-frame");
+const fullEl = document.getElementById("score-full");
+const partialEl = document.getElementById("score-partial");
+const recordsContainer = document.querySelector(".records-section");
 
-const levelRecords = {
-  "ZenonMartyniukLiked": [
-    { flag: "pl", player: "[KASTI] realkolib2137", progress: "100%", proof: "" },
-  ],
-  "CLICKS OF HELL": [
-    { flag: "pl", player: "[KASTI] realkolib2137", progress: "100%", proof: "" },
-  ],
-  "Lightmare": [
-    { flag: "pl", player: "Beli9002", progress: "100%", proof: "" },
-  ],
-  "mess": [
-    { flag: "pl", player: "[KASTI] realkolib2137", progress: "100%", proof: "https://www.youtube.com/watch?v=u--mLTf6VwA" },
-  ],
-};
+async function loadLevel() {
+  try {
+    const levels = await fetch("data/levels.json").then(r => r.json());
+    const records = await fetch("data/records.json").then(r => r.json());
 
-function renderRecords(name) {
-  const records = levelRecords[name];
-  const container = document.querySelector(".records-section");
-  if (!container) return;
+    const level = levels.find(l => l.title === levelName);
 
+    if (!level) {
+      document.querySelector(".container").innerHTML = `<h2>Level not found</h2>`;
+      return;
+    }
+
+    nameEl.textContent = level.title;
+    videoEl.src = level.video;
+    fullEl.textContent = level.scoreFull;
+    partialEl.textContent = level.scorePartial;
+
+    renderRecords(level.title, records);
+  } catch (e) {
+    console.error("Error loading level data", e);
+  }
+}
+
+function renderRecords(name, recordsData) {
+  const records = recordsData[name];
   if (!records || records.length === 0) {
-    container.innerHTML = `
+    recordsContainer.innerHTML = `
       <h2>Records</h2>
       <b>No victors</b>
     `;
     return;
   }
 
-  container.innerHTML = `
+  recordsContainer.innerHTML = `
     <h2>Records</h2>
     <p>75% or better required to qualify</p>
     <p>${records.length} records registered</p>
@@ -64,7 +54,7 @@ function renderRecords(name) {
             <td><img src="https://flagcdn.com/${r.flag}.svg" class="flag" alt="${r.flag}"></td>
             <td>${r.player}</td>
             <td>${r.progress}</td>
-            <td><a href="${r.proof}" target="_blank">YouTube 🔗</a></td>
+            <td>${r.proof ? `<a href="${r.proof}" target="_blank">YouTube 🔗</a>` : "—"}</td>
           </tr>
         `).join("")}
       </tbody>
@@ -72,17 +62,4 @@ function renderRecords(name) {
   `;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const data = levelData[levelName];
-  if (!data) {
-    document.querySelector(".container").innerHTML = `<h2>Level not found</h2>`;
-    return;
-  }
-
-  document.getElementById("level-name").textContent = levelName;
-  document.getElementById("video-frame").src = data.video;
-  document.getElementById("score-full").textContent = data.scoreFull;
-  document.getElementById("score-partial").textContent = data.scorePartial;
-
-  renderRecords(levelName);
-});
+document.addEventListener("DOMContentLoaded", loadLevel);
