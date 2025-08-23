@@ -1,5 +1,23 @@
 [
-  { "rank": 1, "name": "[KASTI] realkolib2137", "country": "pl", "score": 478.14, "records": ["CLICKS OF HELL - TOP 6","ZenonMartyniukLiked - TOP 7","mess - TOP 18"] },
-  { "rank": 2, "name": "Beli9002", "country": "pl", "score": 52.78, "records": ["Lightmare - TOP 15"] },
-  { "rank": 3, "name": "zigi", "country": "pl", "score": 3.34, "records": ["mess - TOP 18"] }
+  {
+    "rank": 1,
+    "name": "[KASTI] realkolib2137",
+    "country": "pl",
+    "score": 478.14,
+    "records": ["CLICKS OF HELL", "ZenonMartyniukLiked", "mess"]
+  },
+  {
+    "rank": 2,
+    "name": "Beli9002",
+    "country": "pl",
+    "score": 52.78,
+    "records": ["Lightmare"]
+  },
+  {
+    "rank": 3,
+    "name": "zigi",
+    "country": "pl",
+    "score": 3.34,
+    "records": ["mess"]
+  }
 ]
