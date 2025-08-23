@@ -33,12 +33,10 @@ function renderPlayers(filter = "") {
 }
 
 function showPlayerDetails(player) {
-  // Szukamy danych poziomów danego gracza
   const playerLevels = player.records
     .map(name => levels.find(l => l.title === name))
     .filter(Boolean);
 
-  // Najtrudniejszy = najmniejszy rank
   const hardest = playerLevels.reduce((min, lvl) => 
     lvl.rank < min.rank ? lvl : min, 
     playerLevels[0] || { title: "Brak", rank: 9999 }
