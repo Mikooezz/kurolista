@@ -35,12 +35,10 @@ function renderPlayers(filter = "") {
 function showPlayerDetails(player) {
   const playerLevels = player.records
     .map(name => levels.find(l => l.title === name))
-    .filter(Boolean);
+    .filter(Boolean)
+    .sort((a, b) => a.rank - b.rank);
 
-  const hardest = playerLevels.reduce((min, lvl) => 
-    lvl.rank < min.rank ? lvl : min, 
-    playerLevels[0] || { title: "Brak", rank: 9999 }
-  );
+  const hardest = playerLevels[0] || { title: "Brak", rank: 9999 };
 
   playerDetailsEl.innerHTML = `
     <h2>#${player.rank} ${player.name}</h2>
